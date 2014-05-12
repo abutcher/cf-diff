@@ -1,0 +1,29 @@
+cf-diff Cloud Formations Diff Tool
+Copyright © 2014, Red Hat, Inc.
+
+Requires:
+  - python-boto
+  - python-difflib
+  - python-termcolor
+
+Usage:
+   <abutcher>@(lovecoo)[~/rhat/cloudformation] 17:55:50  (cf-diff⚡) 
+   $ cf-diff NetworkProd $ACCESS_KEY $SECRET_KEY
+   --- remote
+
+   +++ local
+
+   @@ -3889,12 +3889,6 @@
+
+                "FromPort": "5666",
+                "ToPort": "5666",
+                "CidrIp": "10.0.0.0/8"
+   -          },
+   -          {
+   -            "IpProtocol": "tcp",
+   -            "FromPort": "8139",
+   -            "ToPort": "8139",
+   -            "CidrIp": "10.0.0.0/8"
+              }
+            ],
+            "SecurityGroupEgress": [
