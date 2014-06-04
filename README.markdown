@@ -36,6 +36,9 @@ location: ../
 [NetworkProd]
 location: /home/abutcher/rhat/cloudformation/network-aws-core-prod.d/
 
+[NetworkStaging]
+location: /home/abutcher/rhat/cloudformation/network-aws-core-stage.d/
+
 [Utility-2b]
 location: /home/abutcher/rhat/cloudformation/utility-aws-core-2b.json
 
@@ -44,12 +47,6 @@ location: /home/abutcher/rhat/cloudformation/utility-aws-core-2a.json
 
 [ProdCmsSystems]
 location: /home/abutcher/rhat/cloudformation/cms_prod_systems.json
-
-[Utility]
-location: /home/abutcher/rhat/cloudformation/utility-aws-core.json
-
-[NetworkStaging]
-location: /home/abutcher/rhat/cloudformation/network-aws-core-stage.d/
 ```
 
 ### Usage:
