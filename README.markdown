@@ -51,7 +51,7 @@ location: /home/abutcher/rhat/cloudformation/cms_prod_systems.json
 
 ### Usage:
 
-In this example, I've added an ACL to my local template and there is
+In this example, I've removed an ACL to my local template and there is
 no diff with the remote template.
 
 ```
