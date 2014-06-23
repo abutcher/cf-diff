@@ -1,5 +1,6 @@
 *.pyc
 *~
+MANIFEST
 build/
 cf_diff.spec
 setup.py
