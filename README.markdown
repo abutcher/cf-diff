@@ -59,7 +59,7 @@ no diff with the remote template.
 
 ```
 <abutcher>@(lovecoo)[~/rhat/cloudformation] 17:55:50  (cf-diff) 
-$ cf-diff NetworkProd $ACCESS_KEY $SECRET_KEY
+$ cf-diff NetworkProd
 --- remote
 
 +++ local
