@@ -1,4 +1,5 @@
 *.pyc
 *~
 build/
-cf-diff.spec
+cf_diff.spec
+setup.py
