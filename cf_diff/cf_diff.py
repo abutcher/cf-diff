@@ -43,7 +43,7 @@ class cf_diff(object):
         config = ConfigParser.SafeConfigParser()
         configs = []
         cfg = {}
-        configs.append('/home/abutcher/.config/cf_diff/config')
+        configs.append('~/.config/cf_diff/config')
         config.read(configs)
         for section in config.sections():
             cfg[section] = dict(config.items(section))
