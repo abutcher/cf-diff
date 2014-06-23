@@ -19,4 +19,4 @@ from cf_diff import cf_diff as cf
 
 def compare(args):
     cf_diff = cf(args)
-    diff = cf_diff.compare(args.stackname, args.access_key, args.secret_key)
+    diff = cf_diff.compare(args.stackname)

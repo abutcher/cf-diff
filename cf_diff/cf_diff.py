@@ -40,10 +40,11 @@ class cf_diff(object):
                 print line
 
     def load_config(self, stackname=None):
+        config_path = os.path.expanduser('~/.config/cf_diff/config')
         config = ConfigParser.SafeConfigParser()
         configs = []
         cfg = {}
-        configs.append('~/.config/cf_diff/config')
+        configs.append(config_path)
         config.read(configs)
         for section in config.sections():
             cfg[section] = dict(config.items(section))
@@ -55,7 +56,7 @@ class cf_diff(object):
                 read_files = sorted(glob.glob(self.config['location'] + '*'))
                 local_output = tempfile.NamedTemporaryFile(mode='w+')
                 for f in read_files:
-                    with open(f, "r") as infile:
+                    with open(f, 'r') as infile:
                         local_output.write(infile.read())
                 local_output.seek(0)
                 data = local_output.read()
