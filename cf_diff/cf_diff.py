@@ -28,8 +28,8 @@ class cf_diff(object):
         self.args = args
         self.config = self.load_config(args.stackname)
 
-    def compare(self, stackname=None, access_key=None, secret_key=None):
-        remote_template = self.load_remote_template(stackname, access_key, secret_key)
+    def compare(self, stackname=None):
+        remote_template = self.load_remote_template(stackname)
         local_template = self.load_local_template()
         for line in difflib.unified_diff(remote_template.splitlines(), local_template.splitlines(), fromfile="remote", tofile="local"):
             if line.startswith('-'):
@@ -64,10 +64,10 @@ class cf_diff(object):
             else:
                 return open(self.config['location']).read()
 
-    def load_remote_template(self, stackname=None, access_key=None, secret_key=None):
-        conn = boto.cloudformation.connect_to_region('us-west-2', 
-                                                     aws_access_key_id=access_key,
-                                                     aws_secret_access_key=secret_key)
+    def load_remote_template(self, stackname=None):
+        conn = boto.cloudformation.connect_to_region(self.config['region'],
+                                                     aws_access_key_id=self.config['access_key'],
+                                                     aws_secret_access_key=self.config['secret_key'])
         stack = conn.describe_stacks(stack_name_or_id=stackname)
         template = stack[0].get_template()['GetTemplateResponse']['GetTemplateResult']['TemplateBody']
         remote_output = tempfile.NamedTemporaryFile(mode='w+')

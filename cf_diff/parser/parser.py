@@ -25,8 +25,4 @@ class parser(object):
             description='Cloud Formations Diff Tool')
         self.parser.add_argument('stackname', metavar='STACK-NAME', type=str,
                    help='the name of your stack')
-        self.parser.add_argument('access_key', metavar='ACCESS-KEY', type=str,
-                   help='your aws api access key')
-        self.parser.add_argument('secret_key', metavar='SECRET-KEY', type=str,
-                   help='your aws api secret key')
         self.parser.set_defaults(cf=cf_diff.compare)
