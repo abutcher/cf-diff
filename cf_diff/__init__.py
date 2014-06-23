@@ -17,6 +17,7 @@
 
 from cf_diff import cf_diff as cf
 
+
 def compare(args):
     cf_diff = cf(args)
     cf_diff.compare(args.stackname)

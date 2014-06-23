@@ -18,6 +18,7 @@
 import argparse
 import cf_diff.cf_diff
 
+
 class parser(object):
     def __init__(self):
 

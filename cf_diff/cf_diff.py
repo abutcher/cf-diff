@@ -23,6 +23,7 @@ import os
 import tempfile
 from termcolor import colored
 
+
 class cf_diff(object):
     def __init__(self, args):
         self.args = args
