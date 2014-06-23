@@ -32,6 +32,9 @@ templates on disk using their names for sorting.
 ```
 [DEFAULT]
 location: ../
+access_key: ACCESSKEY
+secret_key: SECRETKEY
+region: REGION
 
 [NetworkProd]
 location: /home/abutcher/rhat/cloudformation/network-aws-core-prod.d/
