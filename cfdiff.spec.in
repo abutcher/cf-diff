@@ -1,11 +1,11 @@
-Name: cf_diff
+Name: cfdiff
 Release: 1%{?dist}
 Summary: Tool for diffing remote vs local AWS CloudFormation templates.
 Version: %VERSION%
 
 Group: Development/Libraries
 License: GPLv3+
-Source0: cf_diff-%{version}.tar.gz
+Source0: cfdiff-%{version}.tar.gz
 Url: https://github.com/abutcher/cf-diff
 
 BuildArch: noarch
@@ -28,7 +28,7 @@ Tool for diffing remote vs local AWS CloudFormation templates.
 %{__python} setup.py install -O1 --root=$RPM_BUILD_ROOT
 
 %files
-%{python_sitelib}/cf_diff*
+%{python_sitelib}/cfdiff*
 %{_bindir}/cf-diff*
 
 

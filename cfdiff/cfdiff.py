@@ -15,6 +15,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+"""
+cfdiff cloudformation stack comparison
+"""
+
 import boto.cloudformation
 import ConfigParser
 import difflib
@@ -24,15 +28,21 @@ import tempfile
 from termcolor import colored
 
 
-class cf_diff(object):
+class cfdiff(object):
     def __init__(self, args):
         self.args = args
         self.config = self.load_config(args.stackname)
 
     def compare(self, stackname=None):
+        """
+        Compare a remote stack template with your local stack template.
+        `stackname` - The name of the stack to compare.
+        """
         remote_template = self.load_remote_template(stackname)
         local_template = self.load_local_template()
-        for line in difflib.unified_diff(remote_template.splitlines(), local_template.splitlines(), fromfile="remote", tofile="local"):
+        for line in difflib.unified_diff(remote_template.splitlines(),
+                                         local_template.splitlines(),
+                                         fromfile='remote', tofile='local'):
             if line.startswith('-'):
                 print colored(line, 'red')
             elif line.startswith('+'):
@@ -41,7 +51,11 @@ class cf_diff(object):
                 print line
 
     def load_config(self, stackname=None):
-        config_path = os.path.expanduser('~/.config/cf_diff/config')
+        """
+        Load configuration for a specific stack.
+        `stackname`: The name of the stack to load configutation for.
+        """
+        config_path = os.path.expanduser('~/.config/cfdiff/config')
         config = ConfigParser.SafeConfigParser()
         configs = []
         cfg = {}
@@ -52,6 +66,9 @@ class cf_diff(object):
         return cfg[stackname]
 
     def load_local_template(self):
+        """
+        Load local template file.
+        """
         if os.path.exists(self.config['location']):
             if os.path.isdir(self.config['location']):
                 read_files = sorted(glob.glob(self.config['location'] + '*'))
@@ -67,9 +84,12 @@ class cf_diff(object):
                 return open(self.config['location']).read()
 
     def load_remote_template(self, stackname=None):
+        """
+        Load remote template file.
+        """
         conn = boto.cloudformation.connect_to_region(self.config['region'],
-                                                     aws_access_key_id=self.config['access_key'],
-                                                     aws_secret_access_key=self.config['secret_key'])
+                        aws_access_key_id=self.config['access_key'],
+                        aws_secret_access_key=self.config['secret_key'])
         stack = conn.describe_stacks(stack_name_or_id=stackname)
         template = stack[0].get_template()['GetTemplateResponse']['GetTemplateResult']['TemplateBody']
         remote_output = tempfile.NamedTemporaryFile(mode='w+')

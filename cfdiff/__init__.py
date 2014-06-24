@@ -15,15 +15,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import argparse
-import cf_diff.cf_diff
+"""
+cfdiff entry point.
+"""
+
+from cfdiff import cfdiff as cf
 
 
-class parser(object):
-    def __init__(self):
-
-        self.parser = argparse.ArgumentParser(
-            description='Cloud Formations Diff Tool')
-        self.parser.add_argument('stackname', metavar='STACK-NAME', type=str,
-                   help='the name of your stack')
-        self.parser.set_defaults(cf=cf_diff.compare)
+def compare(args):
+    """
+    Compare remote stack template with local.
+    """
+    cfdiff = cf(args)
+    cfdiff.compare(args.stackname)

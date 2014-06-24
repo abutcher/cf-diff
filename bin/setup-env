@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-PREFIX_PYTHONPATH="`pwd`:`pwd`/cf_diff/"
+PREFIX_PYTHONPATH="`pwd`:`pwd`/cfdiff/"
 PREFIX_PATH="`pwd`/bin"
 PREFIX_MANPATH="`pwd`/docs/man"
 

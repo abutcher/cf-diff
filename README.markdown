@@ -22,11 +22,11 @@ sudo python setup.py install
 * python-difflib
 * python-termcolor
 
-### Configuration (`~/.config/cf_diff/config`):
+### Configuration (`~/.config/cfdiff/config`):
 
 This file contains paths to your CloudFormation templates which
 correspond to stack names in the EC2 console. Paths can be directories
-for sparse templates or single json files. cf_diff will combine the
+for sparse templates or single json files. cfdiff will combine the
 templates on disk using their names for sorting.
 
 ```

@@ -4,16 +4,16 @@ import sys
 
 from distutils.core import setup
 
-setup(name='cf_diff',
+setup(name='cfdiff',
       version='%VERSION%',
       description='Cloud Formation Diff Tool',
       maintainer='Andrew Butcher',
       maintainer_email='abutcher@redhat.com',
       license='GPLv3+',
-      package_dir={ 'cf_diff': 'cf_diff' },
+      package_dir={ 'cfdiff': 'cfdiff' },
       packages=[
-         'cf_diff',
-         'cf_diff.parser'
+         'cfdiff',
+         'cfdiff.parser'
       ],
       scripts=[
          'bin/cf-diff'

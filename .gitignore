@@ -3,5 +3,5 @@
 MANIFEST
 dist/
 build/
-cf_diff.spec
+cfdiff.spec
 setup.py
