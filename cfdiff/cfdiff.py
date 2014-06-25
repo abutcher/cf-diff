@@ -59,6 +59,9 @@ class cfdiff(object):
         config = ConfigParser.SafeConfigParser()
         configs = []
         cfg = {}
+        if not os.path.exists(config_path):
+            print "No config located at %s check the README" % config_path
+            sys.exit(1)
         configs.append(config_path)
         config.read(configs)
         for section in config.sections():
