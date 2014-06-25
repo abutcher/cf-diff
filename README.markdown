@@ -85,3 +85,11 @@ $ cf-diff NetworkProd
 	  ],
 	  "SecurityGroupEgress": [
 ```
+
+## Hacking
+
+Prefix your `PYTHONPATH` and run this from your checkout.
+
+```
+. ./bin/setup-env
+```
