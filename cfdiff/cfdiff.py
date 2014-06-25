@@ -26,7 +26,7 @@ import glob
 import os
 import tempfile
 from termcolor import colored
-
+import sys
 
 class cfdiff(object):
     def __init__(self, args):
@@ -63,6 +63,9 @@ class cfdiff(object):
         config.read(configs)
         for section in config.sections():
             cfg[section] = dict(config.items(section))
+        if stackname not in cfg.keys():
+            print "%s isn't a stack in your configs" % stackname
+            sys.exit(1)
         return cfg[stackname]
 
     def load_local_template(self):
@@ -82,6 +85,9 @@ class cfdiff(object):
                 return data
             else:
                 return open(self.config['location']).read()
+        else:
+            print "%s file does not exist" % self.config['location']
+            sys.exit(1)
 
     def load_remote_template(self, stackname=None):
         """
