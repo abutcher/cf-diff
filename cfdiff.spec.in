@@ -12,7 +12,6 @@ BuildArch: noarch
 BuildRequires: python2-devel
 
 Requires: python-boto
-Requires: python-difflib
 Requires: python-termcolor
 
 %description
