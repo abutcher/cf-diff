@@ -54,8 +54,7 @@ location: /home/abutcher/rhat/cloudformation/cms_prod_systems.json
 
 ### Usage:
 
-In this example, I've removed an ACL to my local template and there is
-no diff originating from the remote end.
+In this example, I've removed an ACL to my local template.
 
 ```
 <abutcher>@(lovecoo)[~/rhat/cloudformation] 17:55:50  (cf-diff) 
