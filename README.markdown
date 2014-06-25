@@ -16,6 +16,12 @@ cd cf-diff
 sudo python setup.py install
 ```
 
+#### Building the rpm
+
+```
+make rpm
+```
+
 #### Requires:
 
 * python-boto
