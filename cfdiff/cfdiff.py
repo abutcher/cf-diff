@@ -67,7 +67,7 @@ class cfdiff(object):
     def load_config(self, stackname=None):
         """
         Load configuration for a specific stack.
-        `stackname`: The name of the stack to load configutation for.
+        `stackname`: The name of the stack to load configuration for.
         """
         config_path = os.path.expanduser('~/.config/cfdiff/config')
         config = ConfigParser.SafeConfigParser()
