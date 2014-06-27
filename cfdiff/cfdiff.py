@@ -31,7 +31,7 @@ import json
 import types
 
 
-def _purify_json(self, json_text):
+def _purify_json(json_text):
     """ Ensure that 2 JSON objects are indented and formatted
         in exactly the same way for unified diff-ing.
         `json_text` - A string containing JSON-formatted data
