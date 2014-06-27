@@ -27,6 +27,20 @@ import os
 import tempfile
 from termcolor import colored
 import sys
+import json
+import types
+
+
+def _purify_json(self, json_text):
+    """ Ensure that 2 JSON objects are indented and formatted
+        in exactly the same way for unified diff-ing.
+        `json_text` - A string containing JSON-formatted data
+    """
+    assert(isinstance(json_text, types.StringTypes))
+    json_data = json.loads(json_text)
+    return json.dumps(json_data, sort_keys=True,
+                      separators=(",", ":"), indent=4)
+
 
 class cfdiff(object):
     def __init__(self, args):
@@ -38,8 +52,8 @@ class cfdiff(object):
         Compare a remote stack template with your local stack template.
         `stackname` - The name of the stack to compare.
         """
-        remote_template = self.load_remote_template(stackname)
-        local_template = self.load_local_template()
+        remote_template = _purify_json(self.load_remote_template(stackname))
+        local_template = _purify_json(self.load_local_template())
         for line in difflib.unified_diff(remote_template.splitlines(),
                                          local_template.splitlines(),
                                          fromfile='remote', tofile='local'):
